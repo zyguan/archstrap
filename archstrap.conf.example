@@ -1,0 +1,4 @@
+USERNAME="zebra"
+HOST_PREFIX="brix"
+MIRROR='http://mirrors.163.com/archlinux/$repo/os/$arch'
+
