@@ -53,9 +53,6 @@ fi
 
 ## START INSTALL COMMAND
 if [ "$1" = "install" ]; then
-    # sync time
-    timedatectl set-ntp true
-
     # extract package cache if exists
     if [ -f "$PKG_CACHE" ]; then
         mkdir -p /mnt/var/cache
@@ -89,7 +86,7 @@ EOF
     # enable common services
     arch-chroot /mnt systemctl enable dhcpcd.service
     arch-chroot /mnt systemctl enable sshd.service
-    arch-chroot /mnt timedatectl set-ntp true
+    arch-chroot /mnt systemctl enable systemd-timesyncd.service
 
     # install grub
     arch-chroot /mnt grub-install /dev/sda
